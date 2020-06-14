@@ -9,8 +9,8 @@ Jupyter Notebooks are being used for this exercise and includes how to use basic
 The following will be required to use pyspark
 
 - Python 3 (<=3.7)
-- Java 
-- Scala
+- Java (1.8) 
+- Scala (2.11.12)
 - Spark (2.4.6) + Apache hadoop (2.7)
 - Jupyter Notebooks
 
@@ -43,7 +43,7 @@ jupyter notebook
 
 ```
 sudo apt=get update
-sudo apt-get install default-jre
+sudo apt-get install openjdk-8-jre-headless
 ```
 
 #### Check java version 
@@ -52,7 +52,7 @@ sudo apt-get install default-jre
 java -version
 ```
 
-Java version used for this project is 11.0.7, but older versions may be supported as well.
+Java version used for this project is 1.8, but older versions may be supported as well.
 
 #### Install scala
 
@@ -73,6 +73,20 @@ Scala version used for the project is 2.11.12
 Spark 2.4.6 + Apache hadoop 2.7
 You can find the link to download at this <a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>
 
+
+#### Unzip Spark and set permissions
+
+```
+tar -zxvf spark-2.4.6-bin-hadoop2.7.tgz
+
+```
+
+#### Install py4j 
+
+```
+pip3 install py4j
+```
+
 #### Export paths
 
 You will need to set some paths in order to use spark with python
@@ -80,7 +94,7 @@ You will need to set some paths in order to use spark with python
 ```
 export SPARK_HOME='/home/ubuntu/spark-2.4.6-bin-hadoop2.7'
 export PATH=$SPARK_HOME:$PATH
-export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH
+export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
 export PYSPARK_DRIVER_PYTHON="jupyter"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 export PYSPARK_PYTHON=python3.7
